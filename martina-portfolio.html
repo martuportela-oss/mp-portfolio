@@ -147,7 +147,7 @@
   .title-line {
     display: block;
     overflow: hidden;
-    line-height: 1.15;
+    line-height: 1.02;
   }
   .title-inner {
     display: block;
@@ -159,7 +159,7 @@
   .letter-group {
     display: inline-flex;
     overflow: hidden;
-    line-height: 1.15;
+    line-height: 1.02;
   }
   .letter-group .l {
     display: inline-block;
@@ -349,8 +349,8 @@
   /* ── About ── */
   .about-grid {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 6rem;
+    grid-template-columns: minmax(0, 640px) minmax(280px, 0.8fr);
+    gap: 5rem;
     align-items: start;
   }
   .about-text p {
@@ -360,44 +360,24 @@
     margin-bottom: 1.1rem;
   }
   .about-text p strong { color: var(--text); font-weight: 400; }
-  .about-details { padding-top: 0.5rem; }
-  .detail-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--border);
-  }
-  .detail-row:first-child { border-top: 1px solid var(--border); }
-  .detail-label {
-    font-size: 0.67rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-  .detail-val {
-    font-family: var(--serif);
-    font-size: 1rem;
-    color: var(--text);
-    text-align: right;
-  }
-  .skills-wrap {
-    margin-top: 2.5rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.45rem;
-  }
-  .skill-tag {
-    padding: 0.38rem 0.9rem;
+  .about-image {
+    position: relative;
+    min-height: 520px;
     border: 1px solid var(--border);
-    font-size: 0.68rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    transition: all 0.2s;
+    overflow: hidden;
+    background:
+      linear-gradient(180deg, rgba(10,10,10,0) 55%, rgba(10,10,10,0.35)),
+      url("assets/martina-about-portrait.jpg");
+    background-size: cover;
+    background-position: center 36%;
   }
-  .skill-tag:hover { border-color: var(--accent); color: var(--accent); }
-
+  .about-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(200,184,154,0.08);
+    pointer-events: none;
+  }
   /* ── Awards strip ── */
   .awards-strip {
     background: var(--bg2);
@@ -518,15 +498,13 @@
   footer {
     padding: 2rem 3rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     font-size: 0.7rem;
     color: var(--muted);
     letter-spacing: 0.06em;
     border-top: 1px solid var(--border);
   }
-  footer a { color: var(--muted); text-decoration: none; transition: color 0.2s; cursor: none; }
-  footer a:hover { color: var(--accent); }
 
   /* ── Noise overlay ── */
   body::before {
@@ -575,6 +553,7 @@
     .work-item.featured { grid-column: 1; aspect-ratio: 4/3; }
     .section-wrap { padding: 5rem 1.5rem; }
     .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .about-image { min-height: 360px; }
     .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
     .awards-strip { padding: 1.5rem; flex-direction: column; align-items: flex-start; gap: 1.5rem; }
     .award-sep { display: none; }
@@ -607,7 +586,7 @@
     <span class="title-line"><span class="title-inner">Hola, soy</span></span>
     <span class="title-line"><span class="title-inner"><span class="letter-group" id="nameLetters"><em>Martina.</em></span></span></span>
   </h1>
-  <p class="hero-desc">Diseñadora gráfica con pasión por la identidad visual, el motion, la tipografía y la comunicación que deja huella. Cada proyecto es una conversación entre forma y significado.</p>
+  <p class="hero-desc">Diseñadora Gráfica Multimedial apasionada por transformar ideas en universos visuales con identidad, movimiento y sentido.</p>
   <div class="hero-scroll">Scroll</div>
 </section>
 
@@ -818,56 +797,15 @@
   <div class="section-label">Sobre mí</div>
   <div class="about-grid">
     <div>
-      <h2 class="section-title">La persona<br>detrás del<br><em>diseño</em></h2>
+      <h2 class="section-title">La persona detrás del<br><em>diseño</em></h2>
       <div class="about-text">
-        <p>Soy diseñadora gráfica formada en el <strong>Instituto Da Vinci</strong> en Buenos Aires. Me muevo entre la identidad visual, el motion design, la ilustración y el diseño UX/UI — siempre buscando que cada pieza tenga algo que decir.</p>
-        <p>En 2021 obtuve el <strong>Premio Obrar de Plata</strong> por un proyecto de campaña de concientización, un reconocimiento que me impulsó a seguir explorando los límites del diseño con propósito.</p>
-        <p>Me apasiona el cruce entre <strong>tipografía, concepto y emoción</strong>. Cuando no estoy diseñando, estoy buscando referencias en museos, librerías de viejo o series de Fórmula 1.</p>
-      </div>
-      <div class="skills-wrap">
-        <span class="skill-tag">Identidad Visual</span>
-        <span class="skill-tag">Branding</span>
-        <span class="skill-tag">Motion Design</span>
-        <span class="skill-tag">UX / UI</span>
-        <span class="skill-tag">Editorial</span>
-        <span class="skill-tag">Tipografía</span>
-        <span class="skill-tag">Lettering</span>
-        <span class="skill-tag">Ilustración</span>
-        <span class="skill-tag">Infografía</span>
-        <span class="skill-tag">Packaging</span>
-        <span class="skill-tag">Redes Sociales</span>
-        <span class="skill-tag">After Effects</span>
-        <span class="skill-tag">Premiere Pro</span>
-        <span class="skill-tag">Figma</span>
-        <span class="skill-tag">Adobe Suite</span>
+        <p>Soy <strong>Diseñadora Gráfica Multimedial</strong>, formada en el <strong>Instituto Da Vinci</strong> de Buenos Aires. Mi trabajo combina identidad visual, branding, diseño editorial, motion graphics, edición de video y diseño UX/UI para desarrollar piezas con concepto, sensibilidad y una mirada estratégica.</p>
+        <p>En 2021 recibí el <strong>Premio Obrar de Plata</strong> por un proyecto de campaña de concientización, reconocimiento que fortaleció mi interés por explorar el diseño como herramienta de comunicación con impacto.</p>
+        <p>Me interesa el cruce entre <strong>tipografía, concepto y emoción</strong>, y cómo una idea puede transformarse en un sistema visual sólido, coherente y memorable. Domino tanto el español como el inglés, lo que me permite desenvolverme en proyectos y entornos creativos en ambos idiomas.</p>
+        <p>Actualmente me encuentro abierta a nuevas colaboraciones y proyectos freelance.</p>
       </div>
     </div>
-    <div class="about-details">
-      <div class="detail-row">
-        <span class="detail-label">Basada en</span>
-        <span class="detail-val">Buenos Aires, Argentina</span>
-      </div>
-      <div class="detail-row">
-        <span class="detail-label">Formación</span>
-        <span class="detail-val">Diseño Gráfico · Da Vinci</span>
-      </div>
-      <div class="detail-row">
-        <span class="detail-label">Reconocimiento</span>
-        <span class="detail-val">Obrar de Plata 2021</span>
-      </div>
-      <div class="detail-row">
-        <span class="detail-label">Disponible para</span>
-        <span class="detail-val">Proyectos freelance</span>
-      </div>
-      <div class="detail-row">
-        <span class="detail-label">Idiomas</span>
-        <span class="detail-val">Español · Inglés</span>
-      </div>
-      <div class="detail-row">
-        <span class="detail-label">Email</span>
-        <span class="detail-val" style="color: var(--accent); font-family: var(--sans); font-size: 0.85rem;">martuportela@gmail.com</span>
-      </div>
-    </div>
+    <div class="about-image" aria-hidden="true"></div>
   </div>
 </section>
 
@@ -887,10 +825,10 @@
           </div>
           <span class="contact-link-arrow">↗</span>
         </a>
-        <a href="https://www.behance.net/martinaportela1" target="_blank" class="contact-link">
+        <a href="assets/martina-portela-cv.pdf" target="_blank" class="contact-link">
           <div>
-            <div class="contact-link-name">Behance</div>
-            <div class="contact-link-sub">martinaportela1</div>
+            <div class="contact-link-name">CV</div>
+            <div class="contact-link-sub">Martina Portela · PDF</div>
           </div>
           <span class="contact-link-arrow">↗</span>
         </a>
@@ -898,13 +836,6 @@
           <div>
             <div class="contact-link-name">LinkedIn</div>
             <div class="contact-link-sub">martina-portela</div>
-          </div>
-          <span class="contact-link-arrow">↗</span>
-        </a>
-        <a href="https://martina-portela.myportfolio.com" target="_blank" class="contact-link">
-          <div>
-            <div class="contact-link-name">Portfolio actual</div>
-            <div class="contact-link-sub">Adobe Portfolio</div>
           </div>
           <span class="contact-link-arrow">↗</span>
         </a>
@@ -933,12 +864,7 @@
 </section>
 
 <footer>
-  <span>© 2025 Martina Portela · Diseño Gráfico</span>
-  <div style="display:flex; gap:1.5rem;">
-    <a href="mailto:martuportela@gmail.com">Email</a>
-    <a href="https://www.behance.net/martinaportela1" target="_blank">Behance</a>
-    <a href="https://www.linkedin.com/in/martina-portela/" target="_blank">LinkedIn</a>
-  </div>
+  <span>© 2026 Martina Portela - Buenos Aires</span>
 </footer>
 
 <script>
