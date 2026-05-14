@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proyecto | Martina Portela</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0a;
+    --bg2: #111111;
+    --panel: #141414;
+    --text: #f0ede8;
+    --muted: #8a857c;
+    --accent: #c8b89a;
+    --border: rgba(255,255,255,0.08);
+    --serif: 'Cormorant Garamond', serif;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    min-height: 100vh;
+    background:
+      radial-gradient(circle at top left, rgba(200,184,154,0.08), transparent 28%),
+      radial-gradient(circle at bottom right, rgba(200,184,154,0.06), transparent 26%),
+      var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .page {
+    width: min(1180px, calc(100% - 3rem));
+    margin: 0 auto;
+    padding: 1.5rem 0 4rem;
+  }
+
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .brand {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    letter-spacing: 0.04em;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .back-link:hover { color: var(--accent); }
+
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+    gap: 2rem;
+    align-items: stretch;
+    margin-bottom: 2rem;
+  }
+
+  .hero-copy,
+  .hero-card,
+  .section {
+    border: 1px solid var(--border);
+    background: rgba(17,17,17,0.82);
+    backdrop-filter: blur(14px);
+  }
+
+  .hero-copy {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 440px;
+  }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.6rem, 7vw, 5.4rem);
+    font-weight: 300;
+    line-height: 0.96;
+    margin-bottom: 1.25rem;
+  }
+
+  .lead {
+    max-width: 40rem;
+    color: var(--muted);
+    font-size: 1rem;
+  }
+
+  .hero-note {
+    margin-top: 2rem;
+    max-width: 34rem;
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+
+  .hero-card {
+    padding: 2rem;
+    display: grid;
+    align-content: space-between;
+    min-height: 440px;
+    background:
+      linear-gradient(180deg, rgba(200,184,154,0.04), rgba(200,184,154,0)),
+      var(--panel);
+  }
+
+  .stat {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .stat:first-child { border-top: 1px solid var(--border); }
+
+  .stat-label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .stat-value {
+    font-family: var(--serif);
+    font-size: 1.12rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+  }
+
+  .section {
+    padding: 2rem;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
+
+  .section p {
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+  }
+
+  .chip {
+    border: 1px solid var(--border);
+    padding: 0.5rem 0.85rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .placeholder {
+    margin-top: 1.25rem;
+    border: 1px dashed rgba(200,184,154,0.28);
+    background:
+      linear-gradient(135deg, rgba(200,184,154,0.06), rgba(255,255,255,0.01)),
+      #101010;
+    min-height: 220px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--muted);
+  }
+
+  .placeholder strong {
+    display: block;
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-link {
+    margin-top: 2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--accent);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 900px) {
+    .hero,
+    .grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-copy,
+    .hero-card {
+      min-height: auto;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .page {
+      width: min(100% - 2rem, 1180px);
+      padding-top: 1rem;
+    }
+
+    .topbar {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+    }
+
+    .hero-copy,
+    .hero-card,
+    .section {
+      padding: 1.4rem;
+    }
+
+    .lead,
+    .hero-note,
+    .section p {
+      font-size: 0.95rem;
+    }
+  }
+</style>
+</head>
+<body>
+  <main class="page">
+    <div class="topbar">
+      <a class="brand" href="index.html">Martina Portela</a>
+      <a class="back-link" href="index.html#trabajos">← Volver al portfolio</a>
+    </div>
+
+    <section class="hero">
+      <article class="hero-copy">
+        <div>
+          <div class="eyebrow" id="project-category"></div>
+          <h1 id="project-title"></h1>
+          <p class="lead" id="project-summary"></p>
+        </div>
+        <p class="hero-note" id="project-note"></p>
+      </article>
+
+      <aside class="hero-card">
+        <div>
+          <div class="stat">
+            <span class="stat-label">Tipo de proyecto</span>
+            <span class="stat-value" id="project-type"></span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Enfoque</span>
+            <span class="stat-value" id="project-focus"></span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Herramientas</span>
+            <span class="stat-value" id="project-tools"></span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="grid">
+      <article class="section">
+        <h2 class="section-title">Idea</h2>
+        <p id="project-overview"></p>
+        <p id="project-process"></p>
+      </article>
+
+      <article class="section">
+        <h2 class="section-title">Entregables</h2>
+        <div class="chips" id="project-deliverables"></div>
+        <div class="placeholder">
+          <div>
+            <strong>Material visual en actualización</strong>
+            Esta página ya forma parte del nuevo portfolio. El próximo paso es sumar capturas, piezas finales o videos de este proyecto.
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <a class="footer-link" href="index.html#contacto">Hablemos sobre un proyecto similar ↗</a>
+  </main>
+
+<script>
+  const projects = {
+    "publicidad-mcdonalds": {
+      category: "Video · Publicidad",
+      title: "Publicidad McDonald's Gran Tasty Spicy",
+      summary: "Edicion de video con transiciones, ritmo, musica y retoques visuales pensados para una pieza publicitaria de alto impacto.",
+      note: "Este proyecto explora el cruce entre narrativa audiovisual, dinamismo visual y comunicacion de marca dentro de un formato corto.",
+      type: "Spot audiovisual",
+      focus: "Edicion, ritmo y direccion visual",
+      tools: "Premiere Pro · After Effects",
+      overview: "La propuesta se construyo a partir de una logica publicitaria clara: destacar producto, energia y recordacion de marca en una pieza breve y directa.",
+      process: "Trabaje el montaje, las transiciones y los acentos visuales para reforzar el tono de campana y sostener una experiencia de vision atractiva de principio a fin.",
+      deliverables: ["Edicion de video", "Retoque visual", "Pieza publicitaria", "Narrativa audiovisual"]
+    },
+    "formula-1-intro": {
+      category: "Motion · Intro",
+      title: "This is Formula 1 Intro",
+      summary: "Intro de video con tipografia en movimiento, ritmo visual y un lenguaje inspirado en la energia de la Formula 1.",
+      note: "La pieza busca condensar velocidad, tension y personalidad visual a traves del movimiento y la composicion tipografica.",
+      type: "Intro audiovisual",
+      focus: "Motion graphics tipografico",
+      tools: "After Effects",
+      overview: "El proyecto se penso como una apertura intensa y sintetica, capaz de instalar tono y universo desde los primeros segundos.",
+      process: "Desarrolle transiciones, timing y composiciones tipograficas que dialogan con la identidad deportiva y el pulso acelerado del contenido.",
+      deliverables: ["Intro animada", "Tipografia en movimiento", "Timing visual", "Sistema de apertura"]
+    },
+    "premios-obrar": {
+      category: "Identidad · Campana",
+      title: "Premios Obrar 2021",
+      summary: "Campana de concientizacion sobre futbol reconocida con Premio Obrar de Plata, desarrollada desde una mirada sensible y estrategica.",
+      note: "Fue un proyecto clave dentro de mi recorrido porque reforzo mi interes por el diseno como herramienta de comunicacion con impacto real.",
+      type: "Campana de concientizacion",
+      focus: "Concepto, mensaje e identidad",
+      tools: "Adobe Suite",
+      overview: "La propuesta abordo una tematica social desde una identidad visual clara, con recursos capaces de generar lectura, emocion y recordacion.",
+      process: "El trabajo puso especial enfasis en traducir el concepto en piezas coherentes, con una direccion visual consistente y una narrativa accesible.",
+      deliverables: ["Concepto visual", "Campana", "Piezas graficas", "Comunicacion social"]
+    },
+    "anima-salud": {
+      category: "UX / UI · App Design",
+      title: "Anima Salud App",
+      summary: "Diseno integral de una app de salud con investigacion UX, estructura funcional y prototipo para iOS.",
+      note: "La propuesta combina resolucion funcional con una interfaz clara, amable y orientada a acompanar la experiencia del usuario.",
+      type: "Aplicacion mobile",
+      focus: "UX research y diseno de interfaz",
+      tools: "Figma",
+      overview: "El proyecto parte de necesidades concretas del universo salud y las transforma en una experiencia digital ordenada, comprensible y cercana.",
+      process: "Trabaje en investigacion, arquitectura de informacion, pantallas y prototipo para construir un flujo intuitivo y consistente.",
+      deliverables: ["UX research", "Wireframes", "UI design", "Prototipo iOS"]
+    },
+    "diseno-uxui": {
+      category: "UX / UI",
+      title: "Diseno UX/UI",
+      summary: "Seleccion de proyectos centrados en interfaces y experiencia de usuario, con foco en claridad, navegacion y consistencia visual.",
+      note: "Es una linea de trabajo donde me interesa especialmente equilibrar usabilidad, sistema visual y tono de marca.",
+      type: "Sistema de interfaces",
+      focus: "Experiencia y diseno visual",
+      tools: "Figma",
+      overview: "La propuesta reune distintos ejercicios y desarrollos donde el objetivo principal fue mejorar la relacion entre personas, contenido y entorno digital.",
+      process: "Priorizo estructuras claras, decisiones visuales funcionales y componentes que sostengan una experiencia ordenada y memorable.",
+      deliverables: ["Interfaz", "Flujos", "Componentes", "Experiencia digital"]
+    },
+    "naipes-tipograficos": {
+      category: "Editorial · Tipografia",
+      title: "Naipes Tipograficos",
+      summary: "Sistema de naipes con exploracion tipografica y una mirada editorial aplicada al objeto impreso.",
+      note: "Este proyecto me permitio trabajar la forma tipografica no solo como lectura, sino tambien como estructura visual y expresiva.",
+      type: "Diseno editorial impreso",
+      focus: "Sistema tipografico y composicion",
+      tools: "Illustrator · InDesign",
+      overview: "El proyecto investiga como la tipografia puede organizar, narrar y dar identidad a una serie de piezas con logica propia.",
+      process: "Desarrolle criterios de composicion, jerarquias, ritmo y continuidad visual para construir una coleccion coherente de naipes.",
+      deliverables: ["Sistema editorial", "Exploracion tipografica", "Pieza impresa", "Direccion visual"]
+    },
+    "ilustracion": {
+      category: "Ilustracion",
+      title: "Ilustracion",
+      summary: "Serie de ilustraciones digitales orientadas a explorar lenguaje, estilo, color y resolucion visual.",
+      note: "Es un espacio donde trabajo sensibilidad, observacion y busqueda de voz propia desde lo visual.",
+      type: "Serie ilustrada",
+      focus: "Estilo, tecnica y expresion",
+      tools: "Illustrator · Photoshop",
+      overview: "La serie pone el foco en construir imagen con caracter, atendiendo tanto al detalle como a la composicion general.",
+      process: "Cada pieza se desarrollo desde una exploracion formal y tecnica que busca equilibrio entre identidad visual y flexibilidad expresiva.",
+      deliverables: ["Ilustraciones digitales", "Exploracion visual", "Serie autoral", "Composicion"]
+    },
+    "redes": {
+      category: "Social Media · Digital",
+      title: "Redes",
+      summary: "Contenido y direccion visual para redes sociales, pensado desde estrategia grafica, consistencia y adaptacion al medio.",
+      note: "El objetivo fue construir presencia visual con piezas capaces de sostener identidad y captar atencion en entornos de consumo rapido.",
+      type: "Contenido digital",
+      focus: "Estrategia visual para redes",
+      tools: "Photoshop · Illustrator · Premiere Pro",
+      overview: "El proyecto aborda las redes como sistema: no solo piezas aisladas, sino continuidad visual, tono y capacidad de adaptacion.",
+      process: "Trabaje grillas, formatos, jerarquias y recursos visuales para que cada publicacion dialogue con la identidad general.",
+      deliverables: ["Piezas para redes", "Direccion de arte", "Sistema de contenido", "Adaptaciones digitales"]
+    },
+    "logos": {
+      category: "Identidad · Branding",
+      title: "Logos",
+      summary: "Seleccion de logotipos y sistemas de marca desarrollados con foco en sintesis, identidad y aplicacion.",
+      note: "Me interesa el logo como punto de partida de un universo visual mas amplio, no solo como marca aislada.",
+      type: "Identidad visual",
+      focus: "Sintesis y sistema de marca",
+      tools: "Illustrator",
+      overview: "Cada propuesta busca traducir rasgos, tono y diferencial de marca en una solucion visual clara y reconocible.",
+      process: "El trabajo incluye busqueda conceptual, exploracion formal y definicion de decisiones que puedan sostener usos reales.",
+      deliverables: ["Logotipos", "Branding", "Sistema visual", "Aplicaciones basicas"]
+    },
+    "infografias": {
+      category: "Infografia · Comunicacion",
+      title: "Infografias",
+      summary: "Piezas de comunicacion visual orientadas a organizar informacion, clarificar datos y volver mas accesibles distintos contenidos.",
+      note: "Es una linea de trabajo donde el diseno funciona como mediador entre complejidad, lectura y comprension.",
+      type: "Comunicacion visual de datos",
+      focus: "Sintesis y jerarquia de informacion",
+      tools: "Illustrator · InDesign",
+      overview: "La propuesta parte de ordenar contenidos y construir sistemas visuales que faciliten lectura, comparacion y retencion.",
+      process: "Trabajo jerarquias, ritmos, relaciones entre texto e imagen y criterios de navegacion visual para que el mensaje se entienda rapido.",
+      deliverables: ["Infografias", "Visualizacion de datos", "Piezas editoriales", "Comunicacion informativa"]
+    }
+  };
+
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get("slug") || "publicidad-mcdonalds";
+  const project = projects[slug] || projects["publicidad-mcdonalds"];
+
+  document.title = project.title + " | Martina Portela";
+  document.getElementById("project-category").textContent = project.category;
+  document.getElementById("project-title").textContent = project.title;
+  document.getElementById("project-summary").textContent = project.summary;
+  document.getElementById("project-note").textContent = project.note;
+  document.getElementById("project-type").textContent = project.type;
+  document.getElementById("project-focus").textContent = project.focus;
+  document.getElementById("project-tools").textContent = project.tools;
+  document.getElementById("project-overview").textContent = project.overview;
+  document.getElementById("project-process").textContent = project.process;
+
+  const deliverables = document.getElementById("project-deliverables");
+  project.deliverables.forEach((item) => {
+    const span = document.createElement("span");
+    span.className = "chip";
+    span.textContent = item;
+    deliverables.appendChild(span);
+  });
+</script>
+</body>
+</html>
