@@ -244,6 +244,15 @@
     grid-column: 1 / 3;
     aspect-ratio: 16/7;
   }
+  .work-thumb {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.88;
+    transition: transform 0.35s ease, opacity 0.35s ease;
+  }
   .work-placeholder {
     width: 100%; height: 100%;
     display: flex;
@@ -281,6 +290,7 @@
   }
   .work-item:hover .work-overlay { opacity: 1; }
   .work-item:hover .work-placeholder { color: rgba(255,255,255,0.05); }
+  .work-item:hover .work-thumb { transform: scale(1.03); opacity: 0.42; }
   .work-cat {
     font-size: 0.62rem;
     letter-spacing: 0.2em;
@@ -679,6 +689,7 @@
 
   <!-- This is Formula 1 -->
   <div class="work-item w2" data-cat="video">
+    <img class="work-thumb" src="assets/projects/formula-1-intro/poster.jpg" alt="Preview This is Formula 1 Intro">
     <div class="work-overlay">
       <div class="work-cat">Motion · Intro</div>
       <div class="work-name">This is Formula 1 Intro</div>
@@ -688,6 +699,7 @@
   </div>
 
   <div class="work-item w7" data-cat="video">
+    <img class="work-thumb" src="assets/projects/streaming/poster.jpg" alt="Preview Streaming Final">
     <div class="work-overlay">
       <div class="work-cat">Video · Streaming</div>
       <div class="work-name">Streaming Final</div>
@@ -697,6 +709,7 @@
   </div>
 
   <div class="work-item w8" data-cat="video">
+    <img class="work-thumb" src="assets/projects/clip-experimental/poster.jpg" alt="Preview Clip Experimental">
     <div class="work-overlay">
       <div class="work-cat">Video · Experimental</div>
       <div class="work-name">Clip Experimental</div>
