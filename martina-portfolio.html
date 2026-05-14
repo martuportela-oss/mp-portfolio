@@ -545,9 +545,33 @@
 
   /* ── Mobile ── */
   @media (max-width: 768px) {
-    nav { padding: 1.2rem 1.5rem; }
-    .nav-links { gap: 1.5rem; }
-    .hero { padding: 0 1.5rem 4rem; }
+    nav {
+      padding: 1rem 1.25rem;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.8rem;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      border-color: var(--border);
+    }
+    .nav-logo { font-size: 1rem; }
+    .nav-links {
+      width: 100%;
+      gap: 1rem;
+      flex-wrap: wrap;
+      row-gap: 0.5rem;
+    }
+    .nav-links a {
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+    }
+    .hero { padding: 8.75rem 1.5rem 4rem; }
+    .hero-label {
+      max-width: 280px;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    .hero-scroll { display: none; }
     .filter-bar { padding: 0 1.5rem 2rem; }
     .works-grid { grid-template-columns: 1fr; margin: 0 1.5rem; }
     .work-item.featured { grid-column: 1; aspect-ratio: 4/3; }
