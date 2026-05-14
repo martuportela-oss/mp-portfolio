@@ -195,25 +195,7 @@
   }
 
   .media-stage-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .media-kicker {
-    font-size: 0.68rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-  }
-
-  .media-caption {
-    color: var(--muted);
-    font-size: 0.9rem;
-    max-width: 32rem;
-    text-align: right;
+    display: none;
   }
 
   .section {
@@ -303,14 +285,6 @@
       min-height: auto;
     }
 
-    .media-stage-head {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .media-caption {
-      text-align: left;
-    }
   }
 
   @media (max-width: 640px) {
@@ -388,10 +362,6 @@
     </section>
 
     <section class="media-stage" id="project-media-stage" hidden>
-      <div class="media-stage-head">
-        <div class="media-kicker">Proyecto en foco</div>
-        <p class="media-caption" id="project-media-caption"></p>
-      </div>
       <div class="media-shell" id="project-media"></div>
     </section>
 
@@ -438,8 +408,7 @@
       deliverables: ["Intro animada", "Tipografia en movimiento", "Timing visual", "Sistema de apertura"],
       media: {
         type: "video",
-        src: "assets/projects/formula-1-intro/formula-one.mp4",
-        caption: "Video final del proyecto, integrado dentro del portfolio para que la pieza tenga protagonismo propio."
+        src: "assets/projects/formula-1-intro/formula-one.mp4"
       }
     },
     "streaming": {
@@ -455,8 +424,7 @@
       deliverables: ["Pieza audiovisual", "Streaming", "Motion graphics", "Edicion de video"],
       media: {
         type: "video",
-        src: "assets/projects/streaming/streaming-final.mp4",
-        caption: "Pieza audiovisual orientada a streaming, pensada para una experiencia de vision mas directa, dinamica y envolvente."
+        src: "assets/projects/streaming/streaming-final.mp4"
       }
     },
     "clip-experimental": {
@@ -472,8 +440,7 @@
       deliverables: ["Clip audiovisual", "Edicion", "Exploracion visual", "Direccion de arte"],
       media: {
         type: "video",
-        src: "assets/projects/clip-experimental/clip-experimental.mp4",
-        caption: "Clip experimental presentado como pieza central, con mas espacio para que el lenguaje visual respire."
+        src: "assets/projects/clip-experimental/clip-experimental.mp4"
       }
     },
     "premios-obrar": {
@@ -599,7 +566,6 @@
 
   const mediaStage = document.getElementById("project-media-stage");
   const mediaShell = document.getElementById("project-media");
-  const mediaCaption = document.getElementById("project-media-caption");
   const placeholder = document.getElementById("project-placeholder");
 
   if (project.media && project.media.type === "video") {
@@ -610,7 +576,6 @@
     video.playsInline = true;
     video.src = project.media.src;
     mediaShell.appendChild(video);
-    mediaCaption.textContent = project.media.caption || "";
     mediaStage.hidden = false;
     placeholder.hidden = true;
   }
