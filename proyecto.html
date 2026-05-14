@@ -35,6 +35,7 @@
   }
 
   a { color: inherit; text-decoration: none; }
+  [hidden] { display: none !important; }
 
   .page {
     width: min(1180px, calc(100% - 3rem));
@@ -160,6 +161,38 @@
     gap: 2rem;
   }
 
+  .media-stage {
+    margin-bottom: 2rem;
+    border: 1px solid var(--border);
+    background:
+      linear-gradient(180deg, rgba(200,184,154,0.04), rgba(255,255,255,0)),
+      rgba(17,17,17,0.88);
+    backdrop-filter: blur(14px);
+    padding: 1.1rem;
+  }
+
+  .media-stage-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .media-kicker {
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .media-caption {
+    color: var(--muted);
+    font-size: 0.9rem;
+    max-width: 32rem;
+    text-align: right;
+  }
+
   .section {
     padding: 2rem;
   }
@@ -206,7 +239,6 @@
   }
 
   .media-shell {
-    margin-top: 1.25rem;
     border: 1px solid var(--border);
     background: #0d0d0d;
     overflow: hidden;
@@ -215,6 +247,7 @@
   .media-video {
     width: 100%;
     display: block;
+    min-height: min(70vh, 760px);
     aspect-ratio: 16 / 9;
     background: #050505;
   }
@@ -248,6 +281,15 @@
     .hero-card {
       min-height: auto;
     }
+
+    .media-stage-head {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .media-caption {
+      text-align: left;
+    }
   }
 
   @media (max-width: 640px) {
@@ -263,6 +305,7 @@
     }
 
     .hero-copy,
+    .media-stage,
     .hero-card,
     .section {
       padding: 1.4rem;
@@ -272,6 +315,10 @@
     .hero-note,
     .section p {
       font-size: 0.95rem;
+    }
+
+    .media-video {
+      min-height: auto;
     }
   }
 </style>
@@ -311,6 +358,14 @@
       </aside>
     </section>
 
+    <section class="media-stage" id="project-media-stage" hidden>
+      <div class="media-stage-head">
+        <div class="media-kicker">Proyecto en foco</div>
+        <p class="media-caption" id="project-media-caption"></p>
+      </div>
+      <div class="media-shell" id="project-media"></div>
+    </section>
+
     <section class="grid">
       <article class="section">
         <h2 class="section-title">Idea</h2>
@@ -321,7 +376,6 @@
       <article class="section">
         <h2 class="section-title">Entregables</h2>
         <div class="chips" id="project-deliverables"></div>
-        <div class="media-shell" id="project-media" hidden></div>
         <div class="placeholder" id="project-placeholder">
           <div>
             <strong>Material visual en actualización</strong>
@@ -361,7 +415,8 @@
       deliverables: ["Intro animada", "Tipografia en movimiento", "Timing visual", "Sistema de apertura"],
       media: {
         type: "video",
-        src: "assets/projects/formula-1-intro/formula-one.mp4"
+        src: "assets/projects/formula-1-intro/formula-one.mp4",
+        caption: "Video final del proyecto, integrado dentro del portfolio para que la pieza tenga protagonismo propio."
       }
     },
     "streaming": {
@@ -377,7 +432,8 @@
       deliverables: ["Pieza audiovisual", "Streaming", "Motion graphics", "Edicion de video"],
       media: {
         type: "video",
-        src: "assets/projects/streaming/streaming-final.mp4"
+        src: "assets/projects/streaming/streaming-final.mp4",
+        caption: "Pieza audiovisual orientada a streaming, pensada para una experiencia de vision mas directa, dinamica y envolvente."
       }
     },
     "clip-experimental": {
@@ -393,7 +449,8 @@
       deliverables: ["Clip audiovisual", "Edicion", "Exploracion visual", "Direccion de arte"],
       media: {
         type: "video",
-        src: "assets/projects/clip-experimental/clip-experimental.mp4"
+        src: "assets/projects/clip-experimental/clip-experimental.mp4",
+        caption: "Clip experimental presentado como pieza central, con mas espacio para que el lenguaje visual respire."
       }
     },
     "premios-obrar": {
@@ -517,7 +574,9 @@
     deliverables.appendChild(span);
   });
 
+  const mediaStage = document.getElementById("project-media-stage");
   const mediaShell = document.getElementById("project-media");
+  const mediaCaption = document.getElementById("project-media-caption");
   const placeholder = document.getElementById("project-placeholder");
 
   if (project.media && project.media.type === "video") {
@@ -528,7 +587,8 @@
     video.playsInline = true;
     video.src = project.media.src;
     mediaShell.appendChild(video);
-    mediaShell.hidden = false;
+    mediaCaption.textContent = project.media.caption || "";
+    mediaStage.hidden = false;
     placeholder.hidden = true;
   }
 </script>
