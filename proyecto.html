@@ -205,6 +205,20 @@
     color: var(--muted);
   }
 
+  .media-shell {
+    margin-top: 1.25rem;
+    border: 1px solid var(--border);
+    background: #0d0d0d;
+    overflow: hidden;
+  }
+
+  .media-video {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16 / 9;
+    background: #050505;
+  }
+
   .placeholder strong {
     display: block;
     font-family: var(--serif);
@@ -307,7 +321,8 @@
       <article class="section">
         <h2 class="section-title">Entregables</h2>
         <div class="chips" id="project-deliverables"></div>
-        <div class="placeholder">
+        <div class="media-shell" id="project-media" hidden></div>
+        <div class="placeholder" id="project-placeholder">
           <div>
             <strong>Material visual en actualización</strong>
             Esta página ya forma parte del nuevo portfolio. El próximo paso es sumar capturas, piezas finales o videos de este proyecto.
@@ -343,7 +358,43 @@
       tools: "After Effects",
       overview: "El proyecto se penso como una apertura intensa y sintetica, capaz de instalar tono y universo desde los primeros segundos.",
       process: "Desarrolle transiciones, timing y composiciones tipograficas que dialogan con la identidad deportiva y el pulso acelerado del contenido.",
-      deliverables: ["Intro animada", "Tipografia en movimiento", "Timing visual", "Sistema de apertura"]
+      deliverables: ["Intro animada", "Tipografia en movimiento", "Timing visual", "Sistema de apertura"],
+      media: {
+        type: "video",
+        src: "assets/projects/formula-1-intro/formula-one.mp4"
+      }
+    },
+    "streaming": {
+      category: "Video · Streaming",
+      title: "Streaming Final",
+      summary: "Pieza audiovisual pensada para entorno streaming, con montaje dinamico, identidad visual y foco en retencion.",
+      note: "Este proyecto amplia el portfolio hacia formatos digitales actuales donde narrativa, ritmo y presencia visual tienen que convivir en un mismo lenguaje.",
+      type: "Pieza para streaming",
+      focus: "Edicion, identidad y dinamismo",
+      tools: "Premiere Pro · After Effects",
+      overview: "La propuesta se desarrollo para una experiencia de consumo digital mas inmediata, donde cada segundo tiene que sostener atencion y construir tono.",
+      process: "Trabaje transiciones, velocidad de lectura, continuidad visual y acentos graficos para mantener una pieza consistente y atractiva en pantalla.",
+      deliverables: ["Pieza audiovisual", "Streaming", "Motion graphics", "Edicion de video"],
+      media: {
+        type: "video",
+        src: "assets/projects/streaming/streaming-final.mp4"
+      }
+    },
+    "clip-experimental": {
+      category: "Video · Experimental",
+      title: "Clip Experimental",
+      summary: "Exploracion audiovisual basada en ritmo, atmosfera y construccion visual desde el montaje y la imagen en movimiento.",
+      note: "La pieza se apoya mas en lenguaje, sensacion y experimentacion formal que en una estructura publicitaria tradicional.",
+      type: "Clip experimental",
+      focus: "Montaje, tono y exploracion visual",
+      tools: "Premiere Pro · After Effects",
+      overview: "El proyecto investiga como una pieza corta puede construir identidad y clima a traves del encuadre, el tiempo y el tratamiento audiovisual.",
+      process: "Desarrolle una edicion con foco en ritmo, textura visual y transiciones para generar una experiencia mas inmersiva y expresiva.",
+      deliverables: ["Clip audiovisual", "Edicion", "Exploracion visual", "Direccion de arte"],
+      media: {
+        type: "video",
+        src: "assets/projects/clip-experimental/clip-experimental.mp4"
+      }
     },
     "premios-obrar": {
       category: "Identidad · Campana",
@@ -465,6 +516,21 @@
     span.textContent = item;
     deliverables.appendChild(span);
   });
+
+  const mediaShell = document.getElementById("project-media");
+  const placeholder = document.getElementById("project-placeholder");
+
+  if (project.media && project.media.type === "video") {
+    const video = document.createElement("video");
+    video.className = "media-video";
+    video.controls = true;
+    video.preload = "metadata";
+    video.playsInline = true;
+    video.src = project.media.src;
+    mediaShell.appendChild(video);
+    mediaShell.hidden = false;
+    placeholder.hidden = true;
+  }
 </script>
 </body>
 </html>
