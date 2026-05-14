@@ -266,6 +266,20 @@
     color: rgba(255,255,255,0.12);
     transition: color 0.3s;
     position: relative;
+    overflow: hidden;
+    color: transparent;
+  }
+  .work-placeholder::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(198,176,139,0.08), transparent 34%),
+      linear-gradient(180deg, rgba(20,20,20,0.98) 0%, rgba(10,10,10,0.98) 100%);
+  }
+  .work-placeholder > * {
+    position: relative;
+    z-index: 1;
   }
   .work-placeholder .icon {
     font-size: 1.5rem;
@@ -289,7 +303,7 @@
     transition: opacity 0.35s ease;
   }
   .work-item:hover .work-overlay { opacity: 1; }
-  .work-item:hover .work-placeholder { color: rgba(255,255,255,0.05); }
+  .work-item:hover .work-placeholder { color: transparent; }
   .work-item:hover .work-thumb { transform: scale(1.03); opacity: 0.42; }
   .work-cat {
     font-size: 0.62rem;
