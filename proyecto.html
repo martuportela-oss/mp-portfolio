@@ -178,12 +178,6 @@
     font-size: 1.12rem;
   }
 
-  .grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 2rem;
-  }
-
   .media-stage {
     margin-bottom: 2rem;
     border: 1px solid var(--border);
@@ -196,51 +190,6 @@
 
   .media-stage-head {
     display: none;
-  }
-
-  .section {
-    padding: 2rem;
-  }
-
-  .section-title {
-    font-family: var(--serif);
-    font-size: 2rem;
-    font-weight: 300;
-    margin-bottom: 1rem;
-  }
-
-  .section p {
-    color: var(--muted);
-    margin-bottom: 1rem;
-  }
-
-  .chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.65rem;
-  }
-
-  .chip {
-    border: 1px solid var(--border);
-    padding: 0.5rem 0.85rem;
-    font-size: 0.72rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  .placeholder {
-    margin-top: 1.25rem;
-    border: 1px dashed rgba(200,184,154,0.28);
-    background:
-      linear-gradient(135deg, rgba(200,184,154,0.06), rgba(255,255,255,0.01)),
-      #101010;
-    min-height: 220px;
-    display: grid;
-    place-items: center;
-    text-align: center;
-    padding: 1.5rem;
-    color: var(--muted);
   }
 
   .media-shell {
@@ -257,14 +206,6 @@
     background: #050505;
   }
 
-  .placeholder strong {
-    display: block;
-    font-family: var(--serif);
-    font-size: 1.5rem;
-    color: var(--text);
-    margin-bottom: 0.5rem;
-  }
-
   .footer-link {
     margin-top: 2rem;
     display: inline-flex;
@@ -277,9 +218,6 @@
   }
 
   @media (max-width: 900px) {
-    .hero,
-    .grid { grid-template-columns: 1fr; }
-
     .hero-copy,
     .hero-card {
       min-height: auto;
@@ -301,8 +239,7 @@
 
     .hero-copy,
     .media-stage,
-    .hero-card,
-    .section {
+    .hero-card {
       padding: 1.4rem;
     }
 
@@ -365,19 +302,6 @@
       <div class="media-shell" id="project-media"></div>
     </section>
 
-    <section class="grid">
-      <article class="section">
-        <h2 class="section-title">Entregables</h2>
-        <div class="chips" id="project-deliverables"></div>
-        <div class="placeholder" id="project-placeholder">
-          <div>
-            <strong>Material visual en actualización</strong>
-            Esta página ya forma parte del nuevo portfolio. El próximo paso es sumar capturas, piezas finales o videos de este proyecto.
-          </div>
-        </div>
-      </article>
-    </section>
-
     <a class="footer-link" href="index.html#contacto">Hablemos sobre un proyecto similar ↗</a>
   </main>
 
@@ -393,7 +317,6 @@
       tools: "Premiere Pro · After Effects",
       overview: "La propuesta se construyo a partir de una logica publicitaria clara: destacar producto, energia y recordacion de marca en una pieza breve y directa.",
       process: "Trabaje el montaje, las transiciones y los acentos visuales para reforzar el tono de campana y sostener una experiencia de vision atractiva de principio a fin.",
-      deliverables: ["Edicion de video", "Retoque visual", "Pieza publicitaria", "Narrativa audiovisual"]
     },
     "formula-1-intro": {
       category: "Motion · Intro",
@@ -405,7 +328,6 @@
       tools: "After Effects",
       overview: "El proyecto se penso como una apertura intensa y sintetica, capaz de instalar tono y universo desde los primeros segundos.",
       process: "Desarrolle transiciones, timing y composiciones tipograficas que dialogan con la identidad deportiva y el pulso acelerado del contenido.",
-      deliverables: ["Intro animada", "Tipografia en movimiento", "Timing visual", "Sistema de apertura"],
       media: {
         type: "video",
         src: "assets/projects/formula-1-intro/formula-one.mp4"
@@ -421,7 +343,6 @@
       tools: "Premiere Pro · After Effects",
       overview: "La propuesta se desarrollo para una experiencia de consumo digital mas inmediata, donde cada segundo tiene que sostener atencion y construir tono.",
       process: "Trabaje transiciones, velocidad de lectura, continuidad visual y acentos graficos para mantener una pieza consistente y atractiva en pantalla.",
-      deliverables: ["Pieza audiovisual", "Streaming", "Motion graphics", "Edicion de video"],
       media: {
         type: "video",
         src: "assets/projects/streaming/streaming-final.mp4"
@@ -437,7 +358,6 @@
       tools: "Premiere Pro · After Effects",
       overview: "El proyecto investiga como una pieza corta puede construir identidad y clima a traves del encuadre, el tiempo y el tratamiento audiovisual.",
       process: "Desarrolle una edicion con foco en ritmo, textura visual y transiciones para generar una experiencia mas inmersiva y expresiva.",
-      deliverables: ["Clip audiovisual", "Edicion", "Exploracion visual", "Direccion de arte"],
       media: {
         type: "video",
         src: "assets/projects/clip-experimental/clip-experimental.mp4"
@@ -453,7 +373,6 @@
       tools: "Adobe Suite",
       overview: "La propuesta abordo una tematica social desde una identidad visual clara, con recursos capaces de generar lectura, emocion y recordacion.",
       process: "El trabajo puso especial enfasis en traducir el concepto en piezas coherentes, con una direccion visual consistente y una narrativa accesible.",
-      deliverables: ["Concepto visual", "Campana", "Piezas graficas", "Comunicacion social"]
     },
     "anima-salud": {
       category: "UX / UI · App Design",
@@ -465,7 +384,6 @@
       tools: "Figma",
       overview: "El proyecto parte de necesidades concretas del universo salud y las transforma en una experiencia digital ordenada, comprensible y cercana.",
       process: "Trabaje en investigacion, arquitectura de informacion, pantallas y prototipo para construir un flujo intuitivo y consistente.",
-      deliverables: ["UX research", "Wireframes", "UI design", "Prototipo iOS"]
     },
     "diseno-uxui": {
       category: "UX / UI",
@@ -477,7 +395,6 @@
       tools: "Figma",
       overview: "La propuesta reune distintos ejercicios y desarrollos donde el objetivo principal fue mejorar la relacion entre personas, contenido y entorno digital.",
       process: "Priorizo estructuras claras, decisiones visuales funcionales y componentes que sostengan una experiencia ordenada y memorable.",
-      deliverables: ["Interfaz", "Flujos", "Componentes", "Experiencia digital"]
     },
     "naipes-tipograficos": {
       category: "Editorial · Tipografia",
@@ -489,7 +406,6 @@
       tools: "Illustrator · InDesign",
       overview: "El proyecto investiga como la tipografia puede organizar, narrar y dar identidad a una serie de piezas con logica propia.",
       process: "Desarrolle criterios de composicion, jerarquias, ritmo y continuidad visual para construir una coleccion coherente de naipes.",
-      deliverables: ["Sistema editorial", "Exploracion tipografica", "Pieza impresa", "Direccion visual"]
     },
     "ilustracion": {
       category: "Ilustracion",
@@ -501,7 +417,6 @@
       tools: "Illustrator · Photoshop",
       overview: "La serie pone el foco en construir imagen con caracter, atendiendo tanto al detalle como a la composicion general.",
       process: "Cada pieza se desarrollo desde una exploracion formal y tecnica que busca equilibrio entre identidad visual y flexibilidad expresiva.",
-      deliverables: ["Ilustraciones digitales", "Exploracion visual", "Serie autoral", "Composicion"]
     },
     "redes": {
       category: "Social Media · Digital",
@@ -513,7 +428,6 @@
       tools: "Photoshop · Illustrator · Premiere Pro",
       overview: "El proyecto aborda las redes como sistema: no solo piezas aisladas, sino continuidad visual, tono y capacidad de adaptacion.",
       process: "Trabaje grillas, formatos, jerarquias y recursos visuales para que cada publicacion dialogue con la identidad general.",
-      deliverables: ["Piezas para redes", "Direccion de arte", "Sistema de contenido", "Adaptaciones digitales"]
     },
     "logos": {
       category: "Identidad · Branding",
@@ -525,7 +439,6 @@
       tools: "Illustrator",
       overview: "Cada propuesta busca traducir rasgos, tono y diferencial de marca en una solucion visual clara y reconocible.",
       process: "El trabajo incluye busqueda conceptual, exploracion formal y definicion de decisiones que puedan sostener usos reales.",
-      deliverables: ["Logotipos", "Branding", "Sistema visual", "Aplicaciones basicas"]
     },
     "infografias": {
       category: "Infografia · Comunicacion",
@@ -537,7 +450,6 @@
       tools: "Illustrator · InDesign",
       overview: "La propuesta parte de ordenar contenidos y construir sistemas visuales que faciliten lectura, comparacion y retencion.",
       process: "Trabajo jerarquias, ritmos, relaciones entre texto e imagen y criterios de navegacion visual para que el mensaje se entienda rapido.",
-      deliverables: ["Infografias", "Visualizacion de datos", "Piezas editoriales", "Comunicacion informativa"]
     }
   };
 
@@ -556,17 +468,8 @@
   document.getElementById("project-overview").textContent = project.overview;
   document.getElementById("project-process").textContent = project.process;
 
-  const deliverables = document.getElementById("project-deliverables");
-  project.deliverables.forEach((item) => {
-    const span = document.createElement("span");
-    span.className = "chip";
-    span.textContent = item;
-    deliverables.appendChild(span);
-  });
-
   const mediaStage = document.getElementById("project-media-stage");
   const mediaShell = document.getElementById("project-media");
-  const placeholder = document.getElementById("project-placeholder");
 
   if (project.media && project.media.type === "video") {
     const video = document.createElement("video");
@@ -577,7 +480,6 @@
     video.src = project.media.src;
     mediaShell.appendChild(video);
     mediaStage.hidden = false;
-    placeholder.hidden = true;
   }
 </script>
 </body>
