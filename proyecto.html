@@ -123,12 +123,6 @@
     font-size: 1rem;
   }
 
-  .hero-note {
-    max-width: 34rem;
-    color: var(--muted);
-    font-size: 0.92rem;
-  }
-
   .copy-divider {
     width: 100%;
     height: 1px;
@@ -244,7 +238,6 @@
     }
 
     .lead,
-    .hero-note,
     .section p {
       font-size: 0.95rem;
     }
@@ -270,7 +263,6 @@
             <h1 id="project-title"></h1>
             <p class="lead" id="project-summary"></p>
           </div>
-          <p class="hero-note" id="project-note"></p>
           <div class="copy-divider"></div>
           <div class="copy-block">
             <h2 class="copy-block-title">Idea</h2>
@@ -311,7 +303,6 @@
       category: "Video · Publicidad",
       title: "Publicidad McDonald's Gran Tasty Spicy",
       summary: "Edicion de video con transiciones, ritmo, musica y retoques visuales pensados para una pieza publicitaria de alto impacto.",
-      note: "Este proyecto explora el cruce entre narrativa audiovisual, dinamismo visual y comunicacion de marca dentro de un formato corto.",
       type: "Spot audiovisual",
       focus: "Edicion, ritmo y direccion visual",
       tools: "Premiere Pro · After Effects",
@@ -326,7 +317,6 @@
       category: "Motion · Intro",
       title: "This is Formula 1 Intro",
       summary: "Intro de video con tipografia en movimiento, ritmo visual y un lenguaje inspirado en la energia de la Formula 1.",
-      note: "La pieza busca condensar velocidad, tension y personalidad visual a traves del movimiento y la composicion tipografica.",
       type: "Intro audiovisual",
       focus: "Motion graphics tipografico",
       tools: "After Effects · Premiere Pro",
@@ -341,7 +331,6 @@
       category: "Video · Streaming",
       title: "Streaming Final",
       summary: "Pieza audiovisual pensada para entorno streaming, con montaje dinamico, identidad visual y foco en retencion.",
-      note: "Este proyecto amplia el portfolio hacia formatos digitales actuales donde narrativa, ritmo y presencia visual tienen que convivir en un mismo lenguaje.",
       type: "Pieza para streaming",
       focus: "Edicion, identidad y dinamismo",
       tools: "Premiere Pro · After Effects",
@@ -356,7 +345,6 @@
       category: "Identidad · Campana",
       title: "Premios Obrar 2021",
       summary: "Campana de concientizacion sobre futbol reconocida con Premio Obrar de Plata, desarrollada desde una mirada sensible y estrategica.",
-      note: "Fue un proyecto clave dentro de mi recorrido porque reforzo mi interes por el diseno como herramienta de comunicacion con impacto real.",
       type: "Campana de concientizacion",
       focus: "Concepto, mensaje e identidad",
       tools: "Adobe Suite",
@@ -367,7 +355,6 @@
       category: "UX / UI · App Design",
       title: "Anima Salud App",
       summary: "Diseno integral de una app de salud con investigacion UX, estructura funcional y prototipo para iOS.",
-      note: "La propuesta combina resolucion funcional con una interfaz clara, amable y orientada a acompanar la experiencia del usuario.",
       type: "Aplicacion mobile",
       focus: "UX research y diseno de interfaz",
       tools: "Figma",
@@ -378,7 +365,6 @@
       category: "UX / UI",
       title: "Diseno UX/UI",
       summary: "Seleccion de proyectos centrados en interfaces y experiencia de usuario, con foco en claridad, navegacion y consistencia visual.",
-      note: "Es una linea de trabajo donde me interesa especialmente equilibrar usabilidad, sistema visual y tono de marca.",
       type: "Sistema de interfaces",
       focus: "Experiencia y diseno visual",
       tools: "Figma",
@@ -389,7 +375,6 @@
       category: "Editorial · Tipografia",
       title: "Naipes Tipograficos",
       summary: "Sistema de naipes con exploracion tipografica y una mirada editorial aplicada al objeto impreso.",
-      note: "Este proyecto me permitio trabajar la forma tipografica no solo como lectura, sino tambien como estructura visual y expresiva.",
       type: "Diseno editorial impreso",
       focus: "Sistema tipografico y composicion",
       tools: "Illustrator · InDesign",
@@ -400,7 +385,6 @@
       category: "Ilustracion",
       title: "Ilustracion",
       summary: "Serie de ilustraciones digitales orientadas a explorar lenguaje, estilo, color y resolucion visual.",
-      note: "Es un espacio donde trabajo sensibilidad, observacion y busqueda de voz propia desde lo visual.",
       type: "Serie ilustrada",
       focus: "Estilo, tecnica y expresion",
       tools: "Illustrator · Photoshop",
@@ -411,7 +395,6 @@
       category: "Social Media · Digital",
       title: "Redes",
       summary: "Contenido y direccion visual para redes sociales, pensado desde estrategia grafica, consistencia y adaptacion al medio.",
-      note: "El objetivo fue construir presencia visual con piezas capaces de sostener identidad y captar atencion en entornos de consumo rapido.",
       type: "Contenido digital",
       focus: "Estrategia visual para redes",
       tools: "Photoshop · Illustrator · Premiere Pro",
@@ -422,7 +405,6 @@
       category: "Identidad · Branding",
       title: "Logos",
       summary: "Seleccion de logotipos y sistemas de marca desarrollados con foco en sintesis, identidad y aplicacion.",
-      note: "Me interesa el logo como punto de partida de un universo visual mas amplio, no solo como marca aislada.",
       type: "Identidad visual",
       focus: "Sintesis y sistema de marca",
       tools: "Illustrator",
@@ -433,7 +415,6 @@
       category: "Infografia · Comunicacion",
       title: "Infografias",
       summary: "Piezas de comunicacion visual orientadas a organizar informacion, clarificar datos y volver mas accesibles distintos contenidos.",
-      note: "Es una linea de trabajo donde el diseno funciona como mediador entre complejidad, lectura y comprension.",
       type: "Comunicacion visual de datos",
       focus: "Sintesis y jerarquia de informacion",
       tools: "Illustrator · InDesign",
@@ -450,7 +431,6 @@
   document.getElementById("project-category").textContent = project.category;
   document.getElementById("project-title").textContent = project.title;
   document.getElementById("project-summary").textContent = project.summary;
-  document.getElementById("project-note").textContent = project.note;
   document.getElementById("project-type").textContent = project.type;
   document.getElementById("project-focus").textContent = project.focus;
   document.getElementById("project-tools").textContent = project.tools;
