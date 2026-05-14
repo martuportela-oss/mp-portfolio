@@ -72,10 +72,6 @@
   .back-link:hover { color: var(--accent); }
 
   .hero {
-    display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
-    gap: 2rem;
-    align-items: start;
     margin-bottom: 2rem;
   }
 
@@ -213,11 +209,6 @@
   }
 
   @media (max-width: 900px) {
-    .hero {
-      grid-template-columns: minmax(0, 1fr);
-      gap: 1rem;
-    }
-
     .hero-copy,
     .hero-card {
       min-height: auto;
@@ -295,28 +286,28 @@
           </div>
         </div>
       </article>
-
-      <aside class="hero-card">
-        <div>
-          <div class="stat">
-            <span class="stat-label">Tipo de proyecto</span>
-            <span class="stat-value" id="project-type"></span>
-          </div>
-          <div class="stat">
-            <span class="stat-label">Enfoque</span>
-            <span class="stat-value" id="project-focus"></span>
-          </div>
-          <div class="stat">
-            <span class="stat-label">Herramientas</span>
-            <span class="stat-value" id="project-tools"></span>
-          </div>
-        </div>
-      </aside>
     </section>
 
     <section class="media-stage" id="project-media-stage" hidden>
       <div class="media-shell" id="project-media"></div>
     </section>
+
+    <aside class="hero-card">
+      <div>
+        <div class="stat">
+          <span class="stat-label">Tipo de proyecto</span>
+          <span class="stat-value" id="project-type"></span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Enfoque</span>
+          <span class="stat-value" id="project-focus"></span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Herramientas</span>
+          <span class="stat-value" id="project-tools"></span>
+        </div>
+      </div>
+    </aside>
 
     <a class="footer-link" href="index.html#contacto">Hablemos sobre un proyecto similar ↗</a>
   </main>
