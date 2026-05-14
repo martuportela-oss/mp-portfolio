@@ -197,6 +197,12 @@
     background: #050505;
   }
 
+  .media-image {
+    width: 100%;
+    display: block;
+    background: #050505;
+  }
+
   .footer-link {
     margin-top: 2rem;
     display: inline-flex;
@@ -375,6 +381,10 @@
       tools: "Figma",
       overview: "El proyecto parte de necesidades concretas del universo salud y las transforma en una experiencia digital ordenada, comprensible y cercana.",
       process: "Trabaje en investigacion, arquitectura de informacion, pantallas y prototipo para construir un flujo intuitivo y consistente.",
+      media: {
+        type: "image",
+        src: "assets/projects/anima-salud/poster.png",
+      },
     },
     "diseno-uxui": {
       category: "UX / UI",
@@ -463,6 +473,13 @@
     video.playsInline = true;
     video.src = project.media.src;
     mediaShell.appendChild(video);
+    mediaStage.hidden = false;
+  } else if (project.media && project.media.type === "image") {
+    const image = document.createElement("img");
+    image.className = "media-image";
+    image.src = project.media.src;
+    image.alt = project.title;
+    mediaShell.appendChild(image);
     mediaStage.hidden = false;
   }
 </script>
