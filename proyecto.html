@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -203,6 +203,110 @@
     background: #050505;
   }
 
+  .gallery-stage {
+    margin-bottom: 2rem;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .report-stage {
+    margin-bottom: 2rem;
+    display: grid;
+    gap: 0.9rem;
+    border: 1px solid var(--border);
+    background:
+      linear-gradient(180deg, rgba(200,184,154,0.04), rgba(255,255,255,0)),
+      rgba(17,17,17,0.88);
+    backdrop-filter: blur(14px);
+    padding: 1.1rem;
+  }
+
+  .report-copy {
+    color: var(--muted);
+    font-size: 0.98rem;
+  }
+
+  .report-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    min-width: 230px;
+    padding: 0.95rem 1.3rem;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  }
+
+  .report-link:hover {
+    background: var(--accent);
+    color: var(--bg);
+  }
+
+  .gallery-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .gallery-title {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .gallery-controls {
+    display: inline-flex;
+    gap: 0.5rem;
+  }
+
+  .gallery-arrow {
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1px solid var(--border);
+    background: rgba(17,17,17,0.88);
+    color: var(--text);
+    font-size: 1.15rem;
+    cursor: pointer;
+  }
+
+  .gallery-arrow:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+
+  .gallery-viewport {
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: rgba(17,17,17,0.88);
+  }
+
+  .gallery-track {
+    display: flex;
+    transition: transform 0.35s ease;
+    will-change: transform;
+  }
+
+  .gallery-card {
+    min-width: 100%;
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .gallery-card img,
+  .gallery-card video {
+    width: 100%;
+    height: min(76vh, 820px);
+    display: block;
+    object-fit: contain;
+    background: #0d0d0d;
+  }
+
   .footer-link {
     margin-top: 2rem;
     display: inline-flex;
@@ -273,7 +377,7 @@
   <main class="page">
     <div class="topbar">
       <a class="brand" href="index.html">Martina Portela</a>
-      <a class="back-link" href="index.html#trabajos">← Volver al portfolio</a>
+      <a class="back-link" href="index.html#trabajos">&larr; Volver al portfolio</a>
     </div>
 
     <section class="hero">
@@ -298,6 +402,31 @@
       <div class="media-shell" id="project-media"></div>
     </section>
 
+    <section class="gallery-stage" id="project-gallery-stage" hidden>
+      <div class="gallery-header">
+        <div class="gallery-title">Pantallas del proyecto</div>
+        <div class="gallery-controls">
+          <button class="gallery-arrow" id="gallery-prev" type="button" aria-label="Imagen anterior">&larr;</button>
+          <button class="gallery-arrow" id="gallery-next" type="button" aria-label="Imagen siguiente">&rarr;</button>
+        </div>
+      </div>
+      <div class="gallery-viewport">
+        <div class="gallery-track" id="project-gallery"></div>
+      </div>
+    </section>
+
+    <section class="report-stage" id="project-report-stage" hidden>
+      <div class="gallery-header">
+        <div class="gallery-title">Reporte completo</div>
+      </div>
+      <p class="report-copy" id="project-report-copy"></p>
+      <a
+        id="project-report-link"
+        class="report-link"
+        target="_blank"
+        rel="noreferrer">Mirar reporte completo ↗</a>
+    </section>
+
     <aside class="hero-card">
       <div>
         <div class="stat">
@@ -315,7 +444,7 @@
       </div>
     </aside>
 
-    <a class="footer-link" href="index.html#contacto">Hablemos sobre un proyecto similar ↗</a>
+    <a class="footer-link" href="index.html#contacto">Hablemos sobre un proyecto similar &nearr;</a>
   </main>
 
 <script>
@@ -348,6 +477,34 @@
         src: "assets/projects/formula-1-intro/formula-one.mp4"
       }
     },
+    "vampire-diaries-intro": {
+      category: "Motion · Intro",
+      title: "The Vampire Diaries Intro",
+      summary: "Intro audiovisual inspirada en The Vampire Diaries, creada a partir de escenas recopiladas de la serie y efectos para construir una apertura con clima propio.",
+      type: "Intro de serie",
+      focus: "Montaje, atmosfera y efectos",
+      tools: "After Effects",
+      overview: "La idea fue imaginar la apertura de una serie o pelicula desde un tono mas dramatico y emocional, usando imagenes reconocibles para instalar universo y tension desde el comienzo.",
+      process: "Trabaje con una recopilacion de videos de la serie y sume efectos, ritmo y transiciones en After Effects para construir una intro breve, intensa y coherente con el mundo de The Vampire Diaries.",
+      media: {
+        type: "video",
+        src: "assets/projects/vampire-diaries-intro/vampire-diaries-intro.mp4"
+      }
+    },
+    "pensamiento-creativo-final": {
+      category: "Video · Facultad",
+      title: "Pensamiento Creativo Final",
+      summary: "Proyecto audiovisual final realizado en equipo para la facultad, pensado como una pieza de cierre con enfoque conceptual, narrativo y colaborativo.",
+      type: "Proyecto final academico",
+      focus: "Concepto, narrativa y montaje",
+      tools: "After Effects · Premiere Pro",
+      overview: "La pieza surge como trabajo final grupal para la materia Pensamiento Creativo, con el objetivo de articular una idea clara, sostener una narrativa audiovisual y darle unidad formal al resultado final.",
+      process: "A partir del trabajo colaborativo y la organizacion del material, se construyo un video de 3 minutos y 28 segundos en formato Full HD, donde el montaje, el ritmo y la articulacion conceptual funcionan como eje del proyecto.",
+      media: {
+        type: "video",
+        src: "assets/projects/pensamiento-creativo-final/pensamiento-creativo-final.mp4"
+      }
+    },
     "streaming": {
       category: "Video · Streaming",
       title: "Streaming Final",
@@ -371,6 +528,11 @@
       tools: "Illustrator · Photoshop",
       overview: "La propuesta abordo una tematica social desde una identidad visual clara, con recursos capaces de generar lectura, emocion y recordacion.",
       process: "El trabajo puso especial enfasis en traducir el concepto en piezas coherentes, con una direccion visual consistente y una narrativa accesible.",
+      gallery: [
+        "assets/projects/premios-obrar/afiche-01.jpg",
+        "assets/projects/premios-obrar/afiche-02.jpg",
+        "assets/projects/premios-obrar/afiche-03.jpg"
+      ],
     },
     "anima-salud": {
       category: "UX / UI · App Design",
@@ -378,12 +540,16 @@
       summary: "Diseno integral de una app de salud con investigacion UX, estructura funcional y prototipo para iOS.",
       type: "Aplicacion mobile",
       focus: "UX research y diseno de interfaz",
-      tools: "Figma",
+      tools: "Figma · Illustrator · Photoshop",
       overview: "El proyecto parte de necesidades concretas del universo salud y las transforma en una experiencia digital ordenada, comprensible y cercana.",
       process: "Trabaje en investigacion, arquitectura de informacion, pantallas y prototipo para construir un flujo intuitivo y consistente.",
       media: {
         type: "image",
         src: "assets/projects/anima-salud/poster.png",
+      },
+      report: {
+        copy: "Mira el reporte completo aca y explora el desarrollo del proyecto en Behance.",
+        href: "https://www.behance.net/gallery/146102409/Anima-Salud-APP",
       },
     },
     "diseno-uxui": {
@@ -392,9 +558,19 @@
       summary: "Seleccion de proyectos centrados en interfaces y experiencia de usuario, con foco en claridad, navegacion y consistencia visual.",
       type: "Sistema de interfaces",
       focus: "Experiencia y diseno visual",
-      tools: "Figma",
+      tools: "Figma · Illustrator · Photoshop",
       overview: "La propuesta reune distintos ejercicios y desarrollos donde el objetivo principal fue mejorar la relacion entre personas, contenido y entorno digital.",
       process: "Priorizo estructuras claras, decisiones visuales funcionales y componentes que sostengan una experiencia ordenada y memorable.",
+      gallery: [
+        "assets/projects/diseno-uxui/cover.png",
+        "assets/projects/diseno-uxui/perfil.png",
+        "assets/projects/diseno-uxui/camara.png",
+        "assets/projects/diseno-uxui/1.png",
+        "assets/projects/diseno-uxui/2.png",
+        "assets/projects/diseno-uxui/3.png",
+        "assets/projects/diseno-uxui/4.png",
+        "assets/projects/diseno-uxui/5.png"
+      ],
     },
     "naipes-tipograficos": {
       category: "Editorial · Tipografia",
@@ -402,9 +578,20 @@
       summary: "Sistema de naipes con exploracion tipografica y una mirada editorial aplicada al objeto impreso.",
       type: "Diseno editorial impreso",
       focus: "Sistema tipografico y composicion",
-      tools: "Illustrator · InDesign",
+      tools: "Illustrator · Photoshop",
       overview: "El proyecto investiga como la tipografia puede organizar, narrar y dar identidad a una serie de piezas con logica propia.",
       process: "Desarrolle criterios de composicion, jerarquias, ritmo y continuidad visual para construir una coleccion coherente de naipes.",
+      gallery: [
+        "assets/projects/naipes-tipograficos/04.png",
+        "assets/projects/naipes-tipograficos/01.png",
+        "assets/projects/naipes-tipograficos/02.png",
+        "assets/projects/naipes-tipograficos/03.png",
+        "assets/projects/naipes-tipograficos/05.png",
+        "assets/projects/naipes-tipograficos/06.png",
+        "assets/projects/naipes-tipograficos/07.png",
+        "assets/projects/naipes-tipograficos/08.png",
+        "assets/projects/naipes-tipograficos/09.png"
+      ],
     },
     "ilustracion": {
       category: "Ilustracion",
@@ -415,6 +602,15 @@
       tools: "Illustrator · Photoshop",
       overview: "La serie pone el foco en construir imagen con caracter, atendiendo tanto al detalle como a la composicion general.",
       process: "Cada pieza se desarrollo desde una exploracion formal y tecnica que busca equilibrio entre identidad visual y flexibilidad expresiva.",
+      gallery: [
+        "assets/projects/ilustracion/07.jpg",
+        "assets/projects/ilustracion/01.jpg",
+        "assets/projects/ilustracion/02.jpg",
+        "assets/projects/ilustracion/03.jpg",
+        "assets/projects/ilustracion/04.jpg",
+        "assets/projects/ilustracion/05.jpg",
+        "assets/projects/ilustracion/06.jpg"
+      ],
     },
     "redes": {
       category: "Social Media · Digital",
@@ -422,19 +618,36 @@
       summary: "Contenido y direccion visual para redes sociales, pensado desde estrategia grafica, consistencia y adaptacion al medio.",
       type: "Contenido digital",
       focus: "Estrategia visual para redes",
-      tools: "Photoshop · Illustrator · Premiere Pro",
+      tools: "Illustrator · Photoshop · After Effects",
       overview: "El proyecto aborda las redes como sistema: no solo piezas aisladas, sino continuidad visual, tono y capacidad de adaptacion.",
       process: "Trabaje grillas, formatos, jerarquias y recursos visuales para que cada publicacion dialogue con la identidad general.",
+      gallery: [
+        "assets/projects/redes/02.jpg",
+        "assets/projects/redes/03.jpg",
+        "assets/projects/redes/01.jpg",
+        "assets/projects/redes/04.jpg",
+        "assets/projects/redes/05.jpg",
+        "assets/projects/redes/06.mp4",
+        "assets/projects/redes/07.mp4",
+        "assets/projects/redes/08.mp4",
+        "assets/projects/redes/09.mp4"
+      ],
     },
     "logos": {
-      category: "Identidad · Branding",
-      title: "Logos",
-      summary: "Seleccion de logotipos y sistemas de marca desarrollados con foco en sintesis, identidad y aplicacion.",
-      type: "Identidad visual",
-      focus: "Sintesis y sistema de marca",
-      tools: "Illustrator",
-      overview: "Cada propuesta busca traducir rasgos, tono y diferencial de marca en una solucion visual clara y reconocible.",
-      process: "El trabajo incluye busqueda conceptual, exploracion formal y definicion de decisiones que puedan sostener usos reales.",
+      category: "Editorial · Revistas",
+      title: "Editorial",
+      summary: "Disenos editoriales desarrollados para revistas, con foco en composicion, lectura, jerarquia visual y construccion de una identidad grafica coherente.",
+      type: "Diseno editorial",
+      focus: "Maquetacion, jerarquia y estilo visual",
+      tools: "InDesign · Illustrator · Photoshop",
+      overview: "El proyecto reune piezas editoriales pensadas para ordenar contenidos, equilibrar imagen y texto, y construir una experiencia de lectura clara, atractiva y consistente.",
+      process: "Trabaje tapas, dobles paginas, reticulas, relaciones tipograficas y criterios de composicion para desarrollar revistas con una identidad visual cuidada y una narrativa editorial solida.",
+      gallery: [
+        "assets/projects/editorial-revistas/cover-current.png",
+        "assets/projects/editorial-revistas/jack-ripper-editorial.png",
+        "assets/projects/editorial-revistas/slide-01.png",
+        "assets/projects/editorial-revistas/slide-02.png"
+      ],
     },
     "infografias": {
       category: "Infografia · Comunicacion",
@@ -442,9 +655,13 @@
       summary: "Piezas de comunicacion visual orientadas a organizar informacion, clarificar datos y volver mas accesibles distintos contenidos.",
       type: "Comunicacion visual de datos",
       focus: "Sintesis y jerarquia de informacion",
-      tools: "Illustrator · InDesign",
+      tools: "Illustrator",
       overview: "La propuesta parte de ordenar contenidos y construir sistemas visuales que faciliten lectura, comparacion y retencion.",
       process: "Trabajo jerarquias, ritmos, relaciones entre texto e imagen y criterios de navegacion visual para que el mensaje se entienda rapido.",
+      gallery: [
+        "assets/projects/infografias/02-hunger-games.jpg",
+        "assets/projects/infografias/01-disney.jpg"
+      ],
     }
   };
 
@@ -464,6 +681,13 @@
 
   const mediaStage = document.getElementById("project-media-stage");
   const mediaShell = document.getElementById("project-media");
+  const galleryStage = document.getElementById("project-gallery-stage");
+  const galleryTrack = document.getElementById("project-gallery");
+  const galleryPrev = document.getElementById("gallery-prev");
+  const galleryNext = document.getElementById("gallery-next");
+  const reportStage = document.getElementById("project-report-stage");
+  const reportCopy = document.getElementById("project-report-copy");
+  const reportLink = document.getElementById("project-report-link");
 
   if (project.media && project.media.type === "video") {
     const video = document.createElement("video");
@@ -482,6 +706,71 @@
     mediaShell.appendChild(image);
     mediaStage.hidden = false;
   }
+
+  if (slug === "diseno-uxui") {
+    mediaShell.innerHTML = "";
+    mediaStage.hidden = true;
+  }
+
+  if (project.gallery && project.gallery.length) {
+    project.gallery.forEach((src) => {
+      const card = document.createElement("div");
+      card.className = "gallery-card";
+      const isVideo = /\.mp4($|\?)/i.test(src);
+      if (isVideo) {
+        const video = document.createElement("video");
+        video.src = src;
+        video.controls = true;
+        video.preload = "metadata";
+        video.playsInline = true;
+        card.appendChild(video);
+      } else {
+        const image = document.createElement("img");
+        image.src = src;
+        image.alt = project.title;
+        card.appendChild(image);
+      }
+      galleryTrack.appendChild(card);
+    });
+
+    let galleryIndex = 0;
+
+    const syncGallery = () => {
+      galleryTrack.style.transform = `translateX(-${galleryIndex * 100}%)`;
+      galleryPrev.disabled = galleryIndex === 0;
+      galleryNext.disabled = galleryIndex === project.gallery.length - 1;
+    };
+
+    galleryPrev.addEventListener("click", () => {
+      if (galleryIndex > 0) {
+        galleryIndex -= 1;
+        syncGallery();
+      }
+    });
+
+    galleryNext.addEventListener("click", () => {
+      if (galleryIndex < project.gallery.length - 1) {
+        galleryIndex += 1;
+        syncGallery();
+      }
+    });
+
+    syncGallery();
+    galleryStage.hidden = false;
+  }
+
+  if (project.report && project.report.href) {
+    reportCopy.textContent = project.report.copy || "Mira el reporte completo aca.";
+    reportLink.href = project.report.href;
+    reportLink.addEventListener("click", event => {
+      event.preventDefault();
+      const opened = window.open(project.report.href, "_blank", "noopener,noreferrer");
+      if (!opened) window.location.href = project.report.href;
+    });
+    reportStage.hidden = false;
+  }
 </script>
 </body>
 </html>
+
+

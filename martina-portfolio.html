@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Martina Portela — Diseño Gráfico</title>
+<title>Martina Portela - Diseño Gráfico</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -32,7 +32,7 @@
     overflow-x: hidden;
   }
 
-  /* ── Cursor ── */
+  /* â”€â”€ Cursor â”€â”€ */
   .cursor {
     width: 8px; height: 8px;
     background: var(--accent);
@@ -58,7 +58,7 @@
   .cursor.big { transform: translate(-50%,-50%) scale(2.5); }
   .cursor-ring.big { transform: translate(-50%,-50%) scale(1.5); border-color: rgba(200,184,154,0.6); }
 
-  /* ── Nav ── */
+  /* â”€â”€ Nav â”€â”€ */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -99,7 +99,7 @@
   }
   .nav-links a:hover { color: var(--text); }
 
-  /* ── Hero ── */
+  /* â”€â”€ Hero â”€â”€ */
   .hero {
     min-height: auto;
     display: flex;
@@ -199,7 +199,7 @@
     background: linear-gradient(to bottom, var(--muted), transparent);
   }
 
-  /* ── Filters ── */
+  /* â”€â”€ Filters â”€â”€ */
   .filter-bar {
     padding: 0 3rem 2.5rem;
     display: flex;
@@ -224,7 +224,7 @@
     color: var(--accent);
   }
 
-  /* ── Works grid ── */
+  /* â”€â”€ Works grid â”€â”€ */
   .works-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -240,6 +240,11 @@
     overflow: hidden;
     cursor: none;
   }
+  .work-item.w2 {
+    aspect-ratio: auto;
+    height: 100%;
+    align-self: stretch;
+  }
   .work-item.featured {
     grid-column: 1 / 3;
     aspect-ratio: 16/7;
@@ -252,6 +257,86 @@
     object-fit: cover;
     opacity: 0.88;
     transition: transform 0.35s ease, opacity 0.35s ease;
+  }
+  .work-cover-card {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+  .formula-cover {
+    background:
+      linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.22)),
+      url("assets/projects/formula-1-intro/candidates/poster-01.jpg") center / cover no-repeat;
+  }
+  .formula-cover::after {
+    content: "";
+  }
+  .vampire-cover {
+    background:
+      linear-gradient(180deg, rgba(8,8,10,0.18), rgba(8,8,10,0.5)),
+      url("assets/projects/vampire-diaries-intro/cover-poster.webp") center / cover no-repeat;
+  }
+  .vampire-cover::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.28)),
+      radial-gradient(circle at 50% 62%, rgba(124, 22, 34, 0.18), transparent 28%);
+  }
+  .vampire-cover::after {
+    content: "";
+  }
+  .pensamiento-cover {
+    background:
+      linear-gradient(180deg, rgba(22, 10, 28, 0.08), rgba(22, 10, 28, 0.28)),
+      url("assets/projects/pensamiento-creativo-final/cover-real.png") center / cover no-repeat;
+  }
+  .pensamiento-cover::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.04), rgba(0,0,0,0.1));
+  }
+  .pensamiento-cover::after {
+    content: "";
+  }
+  .streaming-cover {
+    background:
+      #050505 url("assets/projects/streaming/cover-real.png?v=1") center / cover no-repeat;
+  }
+  .streaming-cover::before {
+    content: none;
+  }
+  .streaming-cover::after {
+    content: none;
+  }
+  .mcd-cover {
+    background:
+      #1b0f08 url("assets/projects/publicidad-mcdonalds/cover-real.png?v=1") center / cover no-repeat;
+  }
+  .mcd-cover::before {
+    content: none;
+  }
+  .mcd-cover::after {
+    content: none;
+  }
+  .premios-cover {
+    background:
+      #0b0b0b url("assets/projects/premios-obrar/cover-real.png?v=1") center / cover no-repeat;
+    filter: contrast(1.02) brightness(1.03);
+  }
+  .uxui-cover {
+    background:
+      #f2efea url("assets/projects/diseno-uxui/cover.png") center / cover no-repeat;
+  }
+  .premios-cover::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0.10) 100%);
   }
   .work-placeholder {
     width: 100%; height: 100%;
@@ -349,10 +434,10 @@
   .w7 { background: #0e1412; }
   .w8 { background: #131013; }
 
-  /* ── Divider ── */
+  /* â”€â”€ Divider â”€â”€ */
   .divider { width: 100%; height: 1px; background: var(--border); }
 
-  /* ── Section shared ── */
+  /* â”€â”€ Section shared â”€â”€ */
   .section-wrap { padding: 7rem 3rem; }
   .section-label {
     font-size: 0.68rem;
@@ -370,7 +455,7 @@
   }
   .section-title em { font-style: italic; }
 
-  /* ── About ── */
+  /* â”€â”€ About â”€â”€ */
   .about-grid {
     display: grid;
     grid-template-columns: minmax(0, 640px) minmax(280px, 0.8fr);
@@ -402,7 +487,7 @@
     border: 1px solid rgba(200,184,154,0.08);
     pointer-events: none;
   }
-  /* ── Awards strip ── */
+  /* â”€â”€ Awards strip â”€â”€ */
   .awards-strip {
     background: var(--bg2);
     border-top: 1px solid var(--border);
@@ -438,7 +523,7 @@
   }
   .award-sep { color: var(--border); font-size: 2rem; flex-shrink: 0; }
 
-  /* ── Contact ── */
+  /* â”€â”€ Contact â”€â”€ */
   .contact-section {
     background: var(--bg2);
     border-top: 1px solid var(--border);
@@ -518,7 +603,7 @@
   }
   .btn-send:hover { background: var(--accent); color: var(--bg); }
 
-  /* ── Footer ── */
+  /* â”€â”€ Footer â”€â”€ */
   footer {
     padding: 2rem 3rem;
     display: flex;
@@ -530,7 +615,7 @@
     border-top: 1px solid var(--border);
   }
 
-  /* ── Noise overlay ── */
+  /* â”€â”€ Noise overlay â”€â”€ */
   body::before {
     content: '';
     position: fixed;
@@ -541,7 +626,7 @@
     opacity: 0.35;
   }
 
-  /* ── Animations ── */
+  /* â”€â”€ Animations â”€â”€ */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(28px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -567,7 +652,7 @@
     to   { transform: translateY(0) rotateX(0deg);      opacity: 1; }
   }
 
-  /* ── Mobile ── */
+  /* â”€â”€ Mobile â”€â”€ */
   @media (max-width: 768px) {
     nav {
       padding: 1rem 1.25rem;
@@ -686,20 +771,20 @@
 
 <div class="works-grid" id="worksGrid">
 
-  <!-- Publicidad McDonald's — featured -->
+  <!-- Publicidad McDonald's - featured -->
   <div class="work-item featured w1" data-cat="video">
-    <img class="work-thumb" src="assets/projects/publicidad-mcdonalds/poster.jpg" alt="Preview Publicidad McDonald's">
+    <div class="work-cover-card mcd-cover" aria-hidden="true"></div>
     <div class="work-overlay">
       <div class="work-cat">Video · Publicidad</div>
       <div class="work-name">Publicidad McDonald's<br>Gran Tasty Spicy</div>
-      <div class="work-desc">Edición de video con transiciones, música y retoques visuales · Guion y Narrativa Da Vinci</div>
+      <div class="work-desc">Edición de video con transiciones, música y retoques visuales · Guion y narrativa Da Vinci</div>
       <a href="proyecto.html?slug=publicidad-mcdonalds" class="work-link">Ver proyecto ↗</a>
     </div>
   </div>
 
   <!-- This is Formula 1 -->
   <div class="work-item w2" data-cat="video">
-    <img class="work-thumb" src="assets/projects/formula-1-intro/poster.jpg" alt="Preview This is Formula 1 Intro">
+    <div class="work-cover-card formula-cover" aria-hidden="true"></div>
     <div class="work-overlay">
       <div class="work-cat">Motion · Intro</div>
       <div class="work-name">This is Formula 1 Intro</div>
@@ -708,8 +793,28 @@
     </div>
   </div>
 
+  <div class="work-item w2" data-cat="video">
+    <div class="work-cover-card vampire-cover" aria-hidden="true"></div>
+    <div class="work-overlay">
+      <div class="work-cat">Motion &middot; Intro</div>
+      <div class="work-name">The Vampire Diaries Intro</div>
+      <div class="work-desc">Intro inspirada en una serie &middot; Montaje de escenas y efectos en After Effects</div>
+      <a href="proyecto.html?slug=vampire-diaries-intro" class="work-link">Ver proyecto &nearr;</a>
+    </div>
+  </div>
+
+  <div class="work-item w2" data-cat="video">
+    <div class="work-cover-card pensamiento-cover" aria-hidden="true"></div>
+    <div class="work-overlay">
+      <div class="work-cat">Video &middot; Facultad</div>
+      <div class="work-name">Pensamiento Creativo Final</div>
+      <div class="work-desc">Proyecto audiovisual final en equipo &middot; Concepto, narrativa y montaje</div>
+      <a href="proyecto.html?slug=pensamiento-creativo-final" class="work-link">Ver proyecto &nearr;</a>
+    </div>
+  </div>
+
   <div class="work-item w7" data-cat="video">
-    <img class="work-thumb" src="assets/projects/streaming/poster.jpg" alt="Preview Streaming Final">
+    <div class="work-cover-card streaming-cover" aria-hidden="true"></div>
     <div class="work-overlay">
       <div class="work-cat">Video · Streaming</div>
       <div class="work-name">Streaming Final</div>
@@ -720,19 +825,14 @@
 
   <!-- Premios Obrar -->
   <div class="work-item w3" data-cat="identidad">
-    <div class="work-placeholder">
-      <span class="icon">✦</span>
-      <span>Agregar imagen</span>
-      <span class="hint">Pieza del proyecto ganador</span>
-    </div>
+    <div class="work-cover-card premios-cover" aria-hidden="true"></div>
     <div class="work-overlay">
-      <div class="work-cat">Identidad · Campaña · 🥈 Obrar de Plata</div>
+      <div class="work-cat">Identidad · Campaña · Obrar de Plata</div>
       <div class="work-name">Premios Obrar 2021</div>
       <div class="work-desc">Campaña de concientización sobre fútbol · Premio Obrar de Plata · Da Vinci</div>
       <a href="proyecto.html?slug=premios-obrar" class="work-link">Ver proyecto ↗</a>
     </div>
   </div>
-
   <!-- Anima Salud APP -->
   <div class="work-item w4" data-cat="uxui">
     <img class="work-thumb" src="assets/projects/anima-salud/poster.png" alt="Preview Anima Salud App">
@@ -746,11 +846,7 @@
 
   <!-- Diseño UX/UI -->
   <div class="work-item w5" data-cat="uxui">
-    <div class="work-placeholder">
-      <span class="icon">◻</span>
-      <span>Agregar imagen</span>
-      <span class="hint">Captura de interfaces</span>
-    </div>
+    <div class="work-cover-card uxui-cover" aria-hidden="true"></div>
     <div class="work-overlay">
       <div class="work-cat">UX / UI</div>
       <div class="work-name">Diseño UX/UI</div>
@@ -761,11 +857,7 @@
 
   <!-- Naipes Tipográficos -->
   <div class="work-item w6" data-cat="editorial">
-    <div class="work-placeholder">
-      <span class="icon">Aa</span>
-      <span>Agregar imagen</span>
-      <span class="hint">Foto de los naipes</span>
-    </div>
+    <img class="work-thumb" src="assets/projects/naipes-tipograficos/04.png" alt="Preview Naipes Tipográficos">
     <div class="work-overlay">
       <div class="work-cat">Editorial · Tipografía</div>
       <div class="work-name">Naipes Tipográficos</div>
@@ -774,28 +866,18 @@
     </div>
   </div>
 
-  <!-- Ilustración -->
-  <div class="work-item w2" data-cat="ilustracion">
-    <div class="work-placeholder">
-      <span class="icon">✏</span>
-      <span>Agregar imagen</span>
-      <span class="hint">Muestra de ilustraciones</span>
-    </div>
+    <!-- Ilustración -->
+  <div class="work-item" data-cat="ilustracion">
+    <img class="work-thumb" src="assets/projects/ilustracion/07.jpg" alt="Preview Ilustración">
     <div class="work-overlay">
       <div class="work-cat">Ilustración</div>
       <div class="work-name">Ilustración</div>
       <div class="work-desc">Serie de ilustraciones digitales · Exploración de estilo y técnica vectorial</div>
       <a href="proyecto.html?slug=ilustracion" class="work-link">Ver proyecto ↗</a>
     </div>
-  </div>
-
-  <!-- Redes Sociales -->
+  </div><!-- Redes Sociales -->
   <div class="work-item w3" data-cat="digital">
-    <div class="work-placeholder">
-      <span class="icon">◉</span>
-      <span>Agregar imagen</span>
-      <span class="hint">Grilla de contenido</span>
-    </div>
+    <img class="work-thumb" src="assets/projects/redes/05.jpg" alt="Preview Redes">
     <div class="work-overlay">
       <div class="work-cat">Social Media · Digital</div>
       <div class="work-name">Redes</div>
@@ -805,27 +887,19 @@
   </div>
 
   <!-- Logos -->
-  <div class="work-item w4" data-cat="identidad">
-    <div class="work-placeholder">
-      <span class="icon">◇</span>
-      <span>Agregar imagen</span>
-      <span class="hint">Grilla de logos</span>
-    </div>
+  <div class="work-item w4" data-cat="editorial">
+    <img class="work-thumb" src="assets/projects/editorial-revistas/cover-current.png" alt="Preview Editorial">
     <div class="work-overlay">
-      <div class="work-cat">Identidad · Branding</div>
-      <div class="work-name">Logos</div>
-      <div class="work-desc">Diseño de logotipos y sistemas de marca · Identidad corporativa</div>
+      <div class="work-cat">Editorial &middot; Revistas</div>
+      <div class="work-name">Editorial</div>
+      <div class="work-desc">Diseño de revistas y piezas editoriales &middot; Maquetación, jerarquía y estilo visual</div>
       <a href="proyecto.html?slug=logos" class="work-link">Ver proyecto ↗</a>
     </div>
   </div>
 
   <!-- Infografías -->
   <div class="work-item w8" data-cat="digital">
-    <div class="work-placeholder">
-      <span class="icon">◫</span>
-      <span>Agregar imagen</span>
-      <span class="hint">Captura de infografías</span>
-    </div>
+    <img class="work-thumb" src="assets/projects/infografias/02-hunger-games.jpg" alt="Preview Infografías">
     <div class="work-overlay">
       <div class="work-cat">Infografía · Comunicación</div>
       <div class="work-name">Infografías</div>
@@ -914,7 +988,7 @@
 </footer>
 
 <script>
-  // ── Hero: letter-by-letter animation for "Martina." ──
+  // â”€â”€ Hero: letter-by-letter animation for "Martina." â”€â”€
   (function() {
     const group = document.getElementById('nameLetters');
     if (!group) return;
@@ -923,7 +997,7 @@
     em.textContent = '';
     text.split('').forEach((ch, i) => {
       const span = document.createElement('span');
-      span.textContent = ch === ' ' ? ' ' : ch;
+      span.textContent = ch === ' ' ? '\u00A0' : ch;
       span.style.cssText = [
         'display:inline-block',
         'opacity:0',
@@ -936,7 +1010,7 @@
     });
   })();
 
-  // ── Particles ──
+  // â”€â”€ Particles â”€â”€
   (function() {
     const canvas = document.getElementById('heroBg');
     if (!canvas) return;
@@ -1055,6 +1129,40 @@
   // Filter
   const btns = document.querySelectorAll('.filter-btn');
   const items = document.querySelectorAll('.work-item');
+
+  items.forEach(item => {
+    const link = item.querySelector('.work-link');
+    if (!link) return;
+    item.addEventListener('click', event => {
+      if (event.target.closest('a, button')) return;
+      window.location.href = link.href;
+    });
+  });
+
+  document.querySelectorAll('.contact-link').forEach(link => {
+    link.addEventListener('click', event => {
+      event.preventDefault();
+      const href = link.getAttribute('href');
+      if (!href) return;
+
+      if (href.startsWith('mailto:')) {
+        window.location.href = href;
+        return;
+      }
+
+      const resolved = new URL(href, window.location.href).href;
+      const opened = window.open(resolved, '_blank', 'noopener,noreferrer');
+      if (!opened) window.location.href = resolved;
+    });
+  });
+
+  document.querySelectorAll('.work-link').forEach(link => {
+    link.addEventListener('click', event => {
+      event.preventDefault();
+      window.location.href = new URL(link.getAttribute('href'), window.location.href).href;
+    });
+  });
+
   btns.forEach(btn => {
     btn.addEventListener('click', () => {
       btns.forEach(b => b.classList.remove('active'));
@@ -1070,4 +1178,5 @@
 </script>
 </body>
 </html>
+
 
