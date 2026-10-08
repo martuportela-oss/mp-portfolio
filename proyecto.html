@@ -666,8 +666,13 @@
   };
 
   const params = new URLSearchParams(window.location.search);
-  const slug = params.get("slug") || "publicidad-mcdonalds";
+  const pathSlug = window.location.pathname.match(/^\/proyecto\/([^/]+)\/?$/)?.[1];
+  const slug = params.get("slug") || (pathSlug ? decodeURIComponent(pathSlug) : null) || "publicidad-mcdonalds";
   const project = projects[slug] || projects["publicidad-mcdonalds"];
+
+  if (window.location.protocol !== "file:" && pathSlug !== slug) {
+    window.history.replaceState(null, "", `/proyecto/${encodeURIComponent(slug)}`);
+  }
 
   document.title = project.title + " | Martina Portela";
   document.getElementById("project-category").textContent = project.category;
@@ -770,6 +775,10 @@
     reportStage.hidden = false;
   }
 </script>
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
 
